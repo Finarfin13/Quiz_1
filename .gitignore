@@ -10,3 +10,194 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+/*
+ * Copyright (C) 2016 Finarfin
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package quiz1_finarfin;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Finarfin
+ */
+public class Quiz1_Finarfin {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        System.out.println("Bienvenido al programa de Finarfin");
+        Scanner as = new Scanner(System.in);
+        System.out.println("escalera, 2 para conocer el interes "
+                + "3 para conocer el area bajo la curva y 4 para un numero "
+                + "aleatorio -salir"
+                + "Ingrese un numero entre 1 y 5; 1 para obtemer una ");
+        int a = as.nextInt();
+
+        if (a < 0 || a > 6) {
+            System.out.println("Numero no valido");
+        }
+
+        if (a == 1) {
+            System.out.println("1. Escalera");
+            Scanner sd = new Scanner(System.in);
+            System.out.println("Ingrese el valor en que desea iniciar");
+            int b = sd.nextInt();
+
+            Scanner df = new Scanner(System.in);
+            System.out.println("Ingrese el numero de niveles que desea");
+            int c = df.nextInt();
+
+            int d = c;
+            int e = 1;
+            int f;
+
+            while (d > 1) {
+                System.out.println(b);
+                b = b + 1;
+                e = 1;
+                f = c - (d - 2);
+
+                while (e < f) {
+                    System.out.print(b);
+                    b = b + 1;
+                    e = e + 1;
+                }
+                d = d - 1;
+            }
+
+        }
+
+        if (a == 2) {
+            System.out.println("2. Intereses");
+
+            Scanner sd = new Scanner(System.in);
+            System.out.println("Ingrese el valor anual i de los intereses");
+            double c = sd.nextInt();
+            double d = c / 100 / 12;
+
+            Scanner df = new Scanner(System.in);
+            System.out.println("Ingrese el tiempo n que amortizara la deuda, "
+                    + "en meses");
+            int e = df.nextInt();
+
+            Scanner gh = new Scanner(System.in);
+            System.out.println("Ingrese el monto m que es el principal");
+            int f = gh.nextInt();
+
+            int g = (int) (f * Math.pow((1 + d), e));
+            System.out.println("El monto " + (f) + " (colones) a " + (e)
+                    + " meses y " + (c) + " % interes se convierte a " + (g)
+                    + " Colones");
+
+        }
+
+        if (a == 3) {
+            System.out.println("3. Area bajo la curva");
+            System.out.println("Para estudiar la ecuacion de la forma "
+                    + "ax^2 + bx + c = 0");
+            Scanner sd = new Scanner(System.in);
+            System.out.println("Ingrese el valo de a");
+            int b = sd.nextInt();
+
+            Scanner df = new Scanner(System.in);
+            System.out.println("Ingrese el termino b");
+            int c = df.nextInt();
+
+            Scanner fg = new Scanner(System.in);
+            System.out.println("Ingrese el termino c");
+            int d = fg.nextInt();
+
+            int e = (int) (Math.pow(c, 2)) - (4 * b * d);
+
+            if (e < 0) {
+                System.out.println("La ecuacion no tiene raices reales y "
+                        + "por tanto no tiene area bajo la curva");
+            }
+
+            if (e == 0) {
+                System.out.println("La ecuacion solo tiene una raiz real "
+                        + "por tanto no hay area bajo la curva");
+
+            }
+
+            if (e > 0) {
+                int f = (int) Math.sqrt(e);
+                int g = (-c + f) / (2 * b);
+                int h = (-c - f) / (2 * b);
+                System.out.println(e);
+                System.out.println("Las raices de la ecuacion son "
+                        + "(" + (g) + "),  (" + (h) + ")");
+
+                if (g > 0) {
+                    int i = (int) ((b * Math.pow(g, 3)) + Math.pow(g, c));
+                    System.out.println("El area bajo la curva es " + i);
+
+                }
+
+                if (h > 0) {
+                    int j = (int) ((b * Math.pow(h, 3)) + Math.pow(h, c));
+                    System.out.println("El area bajo la curva es " + j);
+                }
+
+            }
+        }
+
+        if (a == 4) {
+            System.out.println("4. Aleatorio");
+            int b = (int) (Math.random() * (9 - 0 + 1) + 0);
+            int c = b;
+            while (c == b) {
+                c = (int) (Math.random() * (9 - 0 + 1) + 0);
+            }
+            int d = b;
+            while (d == c || d == b) {
+                d = (int) (Math.random() * (9 - 0 + 1) + 0);
+            }
+            int e = b;
+            while (e == d || e == c || e == b) {
+                e = (int) (Math.random() * (9 - 0 + 1) + 0);
+            }
+            int f = b;
+            while (f == e || f == d || f == c || f == b) {
+                f = (int) (Math.random() * (9 - 0 + 1) + 0);
+            }
+            System.out.println((b) + "" + (c) + " " + (d) + "" + (e) + "" + (f));
+
+            Scanner sd = new Scanner(System.in);
+            System.out.println("Ingrese un numero de 3 digitos");
+            int ab = sd.nextInt();
+
+            int g = ab % 10;
+            int h = g % 10;
+            int i = h % 10;
+
+            if (g == b || g == c || g == d || g == e || g == f
+                    && h == b || h == c || h == d || h == e || h == f
+                    && i == b || i == c || i == d || i == e || i == f) {
+                System.out.println("Correcto");
+            } else {
+                System.out.println("Incorrecto");
+            }
+
+        }
+
+    }
+}
+
+}
